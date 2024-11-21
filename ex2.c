@@ -1,12 +1,30 @@
 /******************
 Name:
-ID:
+ID: 212320733
 Assignment: ex2
 *******************/
 
 #include <stdio.h>
 
 int main() {
+	int menuOption = 0;
+	char eyes, nose, mouth;
+
+	while(menuOption != 7) {
+		//menu print
+		printf("Choose an option:\n"
+			"1. Happy Face\n\t"
+			"2. Balanced Number\n\t"
+			"3. Generous Number\n\t"
+			"4. Circle Of Joy\n\t"
+			"5. Happy Numbers\n\t"
+			"6. Festival Of Laughter\n\t"
+			"7. Exit\n");
+
+		scanf("%d", &menuOption);
+
+		//checking input for a menu option
+		switch(menuOption) {
 	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
 	/* Example:
 	* n = 3:
@@ -14,7 +32,19 @@ int main() {
 	*   o
 	* \___/
 	*/
-    
+			//exiting the program
+			case 7: {
+				printf("Thank you for your journey through Numeria!\n");
+				return 0;
+			}
+
+			//sending user back to select an option from the menu
+			default: {
+				printf("This option is not available, please try again.\n");
+				continue;
+			}
+		}
+	}
 
 	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
 	// and the sum of all digits to the right of the middle digit(s) are equal
