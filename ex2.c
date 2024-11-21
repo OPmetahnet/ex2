@@ -12,7 +12,7 @@ int main() {
 
 	while(menuOption != 7) {
 		//menu print
-		printf("Choose an option:\n"
+		printf("Choose an option:\n\t"
 			"1. Happy Face\n\t"
 			"2. Balanced Number\n\t"
 			"3. Generous Number\n\t"
@@ -25,13 +25,13 @@ int main() {
 
 		//checking input for a menu option
 		switch(menuOption) {
-	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
-	/* Example:
-	* n = 3:
-	* 0   0
-	*   o
-	* \___/
-	*/
+			// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
+			/* Example:
+			* n = 3:
+			* 0   0
+			*   o
+			* \___/
+			*/
 			case 1: {
 				int face_size;
 
@@ -79,7 +79,7 @@ int main() {
 				printf("Enter a number:\n");
 				scanf("%d", &number);
 
-				//getting a different face size if not positive/even
+				//getting a different number if not positive
 				while(number <= 0) {
 					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &number);
@@ -113,6 +113,33 @@ int main() {
 					printf("This number is balanced and brings harmony!\n");
 				else
 					printf("\nThis number isn't balanced and destroys harmony.\n");
+
+				continue;
+			}
+
+			case 3: {
+				int number, divisor_sum = 0;
+
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+
+				//getting a different number if not positive
+				while(number <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				//sum all the divisors of the number
+				for(int i = 1; i <= number / 2; i++) {
+					if(number % i == 0)
+						divisor_sum += i;
+				}
+
+				//prints sharing-related messages
+				if(number < divisor_sum)
+					printf("This number is generous!\n");
+				else
+					printf("This number does not share.\n");
 
 				continue;
 			}
