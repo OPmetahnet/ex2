@@ -73,6 +73,13 @@ int main() {
 				continue;
 			}
 
+			// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
+			// and the sum of all digits to the right of the middle digit(s) are equal
+			/* Examples:
+			Balanced: 1533, 450810, 99
+			Not balanced: 1552, 34
+			Please notice: the number has to be bigger than 0.
+			*/
 			case 2: {
 				int number, digit_check_number, digit_count = 0, sum_right = 0, sum_left = 0;
 
@@ -117,6 +124,12 @@ int main() {
 				continue;
 			}
 
+			// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
+			/* Examples:
+			Abundant: 12, 20, 24
+			Not Abundant: 3, 7, 10
+			Please notice: the number has to be bigger than 0.
+			*/
 			case 3: {
 				int number, divisor_sum = 0;
 
@@ -144,6 +157,62 @@ int main() {
 				continue;
 			}
 
+			// Case 4: determine weather a number is a prime.
+			/* Examples:
+			This one brings joy: 3, 5, 11
+			This one does not bring joy: 15, 8, 99
+			Please notice: the number has to be bigger than 0.
+			*/
+			case 4: {
+				int number, reversed_number = 0;
+				int flag_number = 0, flag_reversed_number = 0;
+
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+
+				//getting a different number if not positive
+				while(number <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				//check if the number is prime
+				for(int i = 2; i < number / 2; i++) {
+					if(number % i == 0) {
+						break;
+					}
+
+					//end of the loop
+					if(i == number / 2 - 1)
+						flag_number = 1;
+				}
+
+				//get reversed number
+				while(number > 0) {
+					reversed_number *= 10;
+					reversed_number += number % 10;
+					number /= 10;
+				}
+
+				//check if the reversed number is prime
+				for(int i = 2; i < reversed_number / 2; i++) {
+					if(reversed_number % i == 0) {
+						break;
+					}
+
+					//end of the loop
+					if(i == reversed_number / 2 - 1)
+						flag_reversed_number = 1;
+				}
+
+				if(flag_number && flag_reversed_number)
+					printf("This number completes the circle of joy!\n");
+				else
+					printf("The circle remains incomplete.\n");
+
+				continue;
+			}
+
 			//exiting the program
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
@@ -157,28 +226,6 @@ int main() {
 			}
 		}
 	}
-
-	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
-	// and the sum of all digits to the right of the middle digit(s) are equal
-	/* Examples:
-	Balanced: 1533, 450810, 99
-	Not blanced: 1552, 34
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
-	/* Examples:
-	Abudant: 12, 20, 24
-	Not Abudant: 3, 7, 10
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Case 4: determine wether a number is a prime.
-	/* Examples:
-	This one brings joy: 3, 5, 11
-	This one does not bring joy: 15, 8, 99
-	Please notice: the number has to be bigger than 0.
-	*/
     
 
 	// Happy numbers: Print all the happy numbers between 1 to the given number.
