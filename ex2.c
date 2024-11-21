@@ -73,6 +73,50 @@ int main() {
 				continue;
 			}
 
+			case 2: {
+				int number, digit_check_number, digit_count = 0, sum_right = 0, sum_left = 0;
+
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+
+				//getting a different face size if not positive/even
+				while(number <= 0) {
+					printf("The face's size must be an odd and positive number, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				digit_check_number = number;
+
+				//check the number of digits
+				while(digit_check_number > 0) {
+					digit_count++;
+					digit_check_number /= 10;
+				}
+
+				//summing the digit sums
+				for(int i = 0; i < digit_count; i++) {
+					//up until the middle digit -> sum right
+					if(i <= (digit_count - 1) / 2) {
+						sum_right += number % 10;//adds the rightmost digit of the number
+					}
+
+					//after the middle digit -> sum left
+					if(i >= digit_count / 2) {
+						sum_left += number % 10;
+					}
+
+					number /= 10;
+				}
+
+				//prints harmony-related messages
+				if(sum_left == sum_right)
+					printf("This number is balanced and brings harmony!\n");
+				else
+					printf("\nThis number isn't balanced and destroys harmony.\n");
+
+				continue;
+			}
+
 			//exiting the program
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
