@@ -81,7 +81,7 @@ int main() {
 
 				//getting a different face size if not positive/even
 				while(number <= 0) {
-					printf("The face's size must be an odd and positive number, please try again:\n");
+					printf("Only positive number is allowed, please try again:\n");
 					scanf("%d", &number);
 				}
 
