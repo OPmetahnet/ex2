@@ -32,6 +32,47 @@ int main() {
 	*   o
 	* \___/
 	*/
+			case 1: {
+				int face_size;
+
+				printf("Enter symbols for the eyes, nose, and mouth:\n");
+				scanf(" %c %c %c", &eyes, &nose, &mouth);
+				printf("Enter face size:\n");
+				scanf("%d", &face_size);
+
+				//getting a different face size if not positive/even
+				while(face_size <= 0 || face_size % 2 == 0) {
+					printf("The face's size must be an odd and positive number, please try again:\n");
+					scanf("%d", &face_size);
+				}
+
+				//print eyes
+				printf("%c", eyes);
+				for(int i = 0; i < face_size; i++) {
+					printf(" ");
+				}
+				printf("%c\n", eyes);
+
+				//print nose
+				for(int i = 0; i < face_size + 1; i++) {
+					//checking if it is the middle point index
+					if(i == (face_size + 1) / 2) {
+						printf("%c", nose);
+						continue;
+					}
+					printf(" ");
+				}
+				printf(" \n");
+
+				//print mouth
+				printf("\\");
+				for(int i = 0; i < face_size; i++) {
+					printf("%c", mouth);
+				}
+				printf("/\n");
+				continue;
+			}
+
 			//exiting the program
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
