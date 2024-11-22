@@ -1,5 +1,5 @@
 /******************
-Name:
+Name: Oz Pinto
 ID: 212320733
 Assignment: ex2
 *******************/
@@ -213,6 +213,58 @@ int main() {
 				continue;
 			}
 
+			// Happy numbers: Print all the happy numbers between 1 to the given number.
+			// Happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit
+			/* Examples:
+			Happy :) : 7, 10
+			Not Happy :( : 5, 9
+			Please notice: the number has to be bigger than 0.
+			*/
+			case 5: {
+				int number, sum = 0;
+
+				printf("Enter a number:\n");
+				scanf("%d", &number);
+
+				//getting a different number if not positive
+				while(number <= 0) {
+					printf("Only positive number is allowed, please try again:\n");
+					scanf("%d", &number);
+				}
+
+				printf("Between 1 and %d only these numbers bring happiness: ", number);
+
+				//going over all the numbers from 1 to number and checking them
+				for(int i = 1; i <= number ; i++) {
+					int loop_number = i;
+
+					//check if it's a happy number
+
+					//continue performing the calculation until you reach a single digit
+					while(loop_number / 10 != 0) {
+
+						//sum all the digits powers of 2
+						while(loop_number != 0) {
+							//going over the digits and summing their powers of 2
+							sum += (loop_number % 10) * (loop_number % 10);
+							loop_number /= 10;
+						}
+
+						//reset state before next iteration
+						loop_number = sum;
+						sum = 0;
+					}
+
+					//if it's a single digit and either 1 or 7(one digit happy numbers) then it's a happy number
+					if(loop_number == 1 || loop_number == 7)
+						printf("%d ", i);
+				}
+
+				printf("\n");
+
+				continue;
+			}
+
 			//exiting the program
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
@@ -226,15 +278,6 @@ int main() {
 			}
 		}
 	}
-    
-
-	// Happy numbers: Print all the happy numbers between 1 to the given number.
-	// Happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit
-	/* Examples:
-	Happy :) : 7, 10
-	Not Happy :( : 5, 9
-	Please notice: the number has to be bigger than 0.
-	*/
 
 	// Festival of Laughter: Prints all the numbers between 1 the given number:
 	// and replace with "Smile!" every number that divided by the given smile number
