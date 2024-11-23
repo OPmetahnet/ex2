@@ -284,8 +284,6 @@ int main() {
 				scanf("%*[^\n]");
 				scanf("%*c");
 				check_input = scanf(" smile: %d, cheer: %d", &smile_number, &cheer_number);
-				scanf("%*[^\n]");
-				scanf("%*c");
 
 				//if the entered format wasn't correct - try again
 				while(check_input != 2 || smile_number <= 0 || cheer_number <= 0) {
@@ -295,7 +293,6 @@ int main() {
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" smile: %d, cheer: %d", &smile_number, &cheer_number);
-					scanf("%*[^\n]");
 					scanf("%*c");
 				}
 
@@ -311,7 +308,6 @@ int main() {
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" %d", &max_number);
-					scanf("%*[^\n]");
 					scanf("%*c");
 				}
 
