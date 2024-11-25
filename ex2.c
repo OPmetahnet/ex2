@@ -286,14 +286,13 @@ int main() {
 				check_input = scanf(" smile: %d, cheer: %d", &smile_number, &cheer_number);
 
 				//if the entered format wasn't correct - try again
-				while(check_input != 2 || smile_number <= 0 || cheer_number <= 0) {
+				while(check_input != 2 || smile_number <= 0 || cheer_number <= 0 || smile_number == cheer_number) {
 					printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
 
 					//buffer cleaning + getting input again
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" smile: %d, cheer: %d", &smile_number, &cheer_number);
-					scanf("%*c");
 				}
 
 				//first time getting max number
@@ -308,7 +307,6 @@ int main() {
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" %d", &max_number);
-					scanf("%*c");
 				}
 
 				for(int i = 1; i <= max_number; i++) {
