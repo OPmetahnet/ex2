@@ -293,7 +293,6 @@ int main() {
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" smile: %d, cheer: %d", &smile_number, &cheer_number);
-					scanf("%*c");
 				}
 
 				//first time getting max number
@@ -308,7 +307,6 @@ int main() {
 					scanf("%*[^\n]");
 					scanf("%*c");
 					check_input = scanf(" %d", &max_number);
-					scanf("%*c");
 				}
 
 				for(int i = 1; i <= max_number; i++) {
