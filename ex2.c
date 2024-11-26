@@ -337,7 +337,7 @@ int main() {
 			//exiting the program
 			case 7: {
 				printf("Thank you for your journey through Numeria!\n");
-				return 0;
+				break;
 			}
 
 			//sending user back to select an option from the menu
